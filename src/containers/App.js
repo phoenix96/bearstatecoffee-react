@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route
-} from 'react-router-dom';
-import './App.css';
-import Dashboard from '../components/Dashboard';
+} from 'react-router-dom'
+import './App.css'
+import Dashboard from '../components/Dashboard'
+import Navbar from '../components/Navbar'
+import Login from './Login'
+import Signup from './Signup'
 
 class App extends Component {
 
@@ -13,20 +16,36 @@ class App extends Component {
     this.state = {
       baseURL: '127.0.0.1:8000'
     }
+    this.handleLogin = this.handleLogin.bind(this)
+  }
+
+  handleLogin(data){
+    this.setState({
+      user: data.data.user,
+      token: data.data.token
+    })
+  }
+
+  handleLogout(){
+
   }
 
   render() {
     return (
       <Router>
-        <div className="App">
-
-
-        <Route path="/" exact render={() => <Dashboard baseURL={this.state.baseURL}/>}/>
-
+        <div className="app">
+          <Navbar
+            baseState={this.state}
+            handleLogout={this.handleLogout}/>
+          <div id="Main">
+            <Route path="/" exact render={() => <Dashboard baseState={this.state}/>}/>
+            <Route path="/login" exact render={() => <Login baseState={this.state} handleLogin={this.handleLogin}/>}/>
+            <Route path="/signup" exact render={() => <Signup baseState={this.state}/>}/>
+          </div>  
         </div>
       </Router>
-    );
+    )
   }
 }
 
-export default App;
+export default App
