@@ -26,10 +26,31 @@ class App extends Component {
       user: data.data.user,
       token: data.data.token
     })
+    localStorage.setItem('token', JSON.stringify(data.data.token))
+    localStorage.setItem('user', JSON.stringify(data.data.user))
+  }
+
+  componentWillMount() {
+    if(localStorage.getItem('token')) {
+      this.setState({
+        token : JSON.parse(localStorage.getItem('token')),
+        user : JSON.parse(localStorage.getItem('user'))
+      })
+    }
   }
 
   handleLogout(){
-
+    fetch(`http://${this.state.baseURL}/accounts/logout`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${this.state.token.access_token}`
+      }
+    }).then(() => {
+      alert('Logged out successfully!')
+      this.setState({ user: undefined, token: undefined})
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
+    })
   }
 
   render() {
