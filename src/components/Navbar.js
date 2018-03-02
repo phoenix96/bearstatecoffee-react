@@ -25,6 +25,9 @@ class NavbarComponent extends Component {
           <NavItem eventKey={1} href="#">
             {this.props.baseState.user.email}
           </NavItem>
+          <NavItem onClick={this.props.handleLogout}>
+            Logout
+          </NavItem>
         </Nav>
       )
     }

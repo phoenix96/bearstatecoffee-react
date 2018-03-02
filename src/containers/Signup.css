@@ -1,0 +1,23 @@
+.signup {
+	padding: 10vh 0;
+	width: 40%;
+	background-color: #FAFAFA;
+	margin: auto;
+	-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+	-moz-box-shadow:    3px 3px 5px 6px #ccc;
+	box-shadow:         3px 3px 5px 6px #ccc; 
+}
+
+.signup h2{
+	padding-bottom: 5vh;
+}
+
+.signup form{
+	width: 90%;
+	margin: auto;
+	text-align: left;
+}
+
+.signup .btn {
+	width: 100%;
+}

@@ -6,6 +6,7 @@ import {
   FormControl,
   Button
 } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 import './login.css'
 
 class Login extends Component {
@@ -42,9 +43,15 @@ class Login extends Component {
       if(res.result===false){
         alert(res.message)
       }
-      console.log(res)
       this.props.handleLogin(res)
+      this.props.history.push('/')
     })
+  }
+
+  componentDidMount(){
+    if(this.props.baseState.user){
+      this.props.history.push('/')
+    }
   }
 
   render() {
@@ -76,4 +83,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

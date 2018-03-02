@@ -19,6 +19,7 @@ class App extends Component {
       baseURL: '127.0.0.1:8000'
     }
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   handleLogin(data){
@@ -40,13 +41,12 @@ class App extends Component {
   }
 
   handleLogout(){
-    fetch(`http://${this.state.baseURL}/accounts/logout`, {
+    fetch(`http://${this.state.baseURL}/accounts/logout/`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${this.state.token.access_token}`
       }
     }).then(() => {
-      alert('Logged out successfully!')
       this.setState({ user: undefined, token: undefined})
       localStorage.removeItem('user')
       localStorage.removeItem('token')
