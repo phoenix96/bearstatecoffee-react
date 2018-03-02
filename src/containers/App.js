@@ -10,6 +10,8 @@ import Navbar from '../components/Navbar'
 import Login from './Login'
 import Signup from './Signup'
 import Combo from '../components/Combo'
+import ForgotPassword from '../components/ForgotPassword'
+import ForgotPasswordForm from './ForgotPasswordForm'
 
 class App extends Component {
 
@@ -64,8 +66,10 @@ class App extends Component {
             <Route path="/" exact render={() => <Dashboard baseState={this.state}/>}/>
             <Route path="/login" exact render={() => <Login baseState={this.state} handleLogin={this.handleLogin}/>}/>
             <Route path="/signup" exact render={() => <Signup baseState={this.state}/>}/>
-             <Route path="/combo/view" exact render={() => <Combo baseState={this.state}/>}/>
-             <Route path="/add" exact render={() => <AddProduct baseState={this.state}/>}/>
+            <Route path="/forgot/password" exact render={() => <ForgotPassword baseState={this.state}/>}/>
+            <Route path="/accounts/reset/password/:token/" exact render={() => <ForgotPasswordForm baseState={this.state}/>}/>
+           <Route path="/combo/view" exact render={() => <Combo baseState={this.state}/>}/>
+           <Route path="/add" exact render={() => <AddProduct baseState={this.state}/>}/>
           </div>  
         </div>
       </Router>

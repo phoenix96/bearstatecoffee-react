@@ -7,32 +7,26 @@ import {
   Button
 } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
-import './login.css'
+import './ForgotPassword.css'
 
-class Login extends Component {
+class ForgotPassword extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      email: '',
-      password: ''
+      email: ''
     }
     this.handleChangeEmail = this.handleChangeEmail.bind(this)
-    this.handleChangePassword = this.handleChangePassword.bind(this)
-    this.handleLogin = this.handleLogin.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChangeEmail(evt){
     this.setState({email: evt.target.value})
   }
 
-  handleChangePassword(evt){
-    this.setState({password: evt.target.value})
-  }
-
-  handleLogin(){
+  handleSubmit(){
     console.log(this.state)
-    fetch(`http://${this.props.baseState.baseURL}/accounts/login/`, {
+    fetch(`http://${this.props.baseState.baseURL}/accounts/reset/password/send/mail/`, {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {
@@ -43,8 +37,10 @@ class Login extends Component {
       if(res.result===false){
         alert(res.message)
       }
-      this.props.handleLogin(res)
-      this.props.history.push('/')
+      else{
+        alert(res.data)
+        this.props.history.push('/')
+      }
     })
   }
 
@@ -56,8 +52,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login">
-        <h2>Login In Your Account</h2>
+      <div className="forgot_password">
+        <h2>Reset Password</h2>
         <Form className="form">
           <FormGroup controlId="email">
             <ControlLabel>Email:</ControlLabel>
@@ -68,21 +64,11 @@ class Login extends Component {
               onChange={this.handleChangeEmail}
             />
           </FormGroup>
-          <FormGroup controlId="password">
-            <ControlLabel>Password:</ControlLabel>
-            <FormControl 
-              type="password"
-              value={this.state.password}
-              placeholder="password"
-              onChange={this.handleChangePassword}/>
-          </FormGroup>
-          <span><a href="/forgot/password/">Forget password?</a></span>
-          <br/><br/>
-          <Button bsStyle="primary" onClick={this.handleLogin}>Submit</Button>
+          <Button bsStyle="primary" onClick={this.handleSubmit}>Submit</Button>
         </Form>
       </div>
     )
   }
 }
 
-export default withRouter(Login)
+export default withRouter(ForgotPassword)
