@@ -32,11 +32,21 @@ class NavbarComponent extends Component {
       return (
         <Nav pullRight>
           <NavItem>
+            <Link to="/add">Admin Add Product</Link>  
+          </NavItem>
+          <NavItem>
+            <Link to="/">Products</Link>  
+          </NavItem>
+          <NavItem>
+            <Link to="/combo/view">Combos</Link>  
+          </NavItem>
+          <NavItem>
             <Link to="/login">Login</Link>
           </NavItem>
           <NavItem>
             <Link to="/signup">Sign Up</Link>  
           </NavItem>
+         
         </Nav>
       )
     }

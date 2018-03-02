@@ -1,0 +1,36 @@
+.dashboard * {margin: 0; padding: 0;}
+ 
+.dashboard div {
+  margin: 20px;
+}
+ 
+.dashboard ul {
+  list-style-type: none;
+  width: 500px;
+}
+ 
+.dashboard h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+ 
+.dashboard li img {
+  float: left;
+   height: 100px;
+    width: 100px;
+  margin: 0 0 0 0;
+}
+ 
+.dashboard li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+  text-align: center;
+}
+ 
+.dashboard li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+.dashboard li:hover {
+  background: #eee;
+  cursor: pointer;
+}

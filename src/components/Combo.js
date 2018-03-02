@@ -3,7 +3,7 @@ import './Dashboard.css'
 
 
 
-class Dashboard extends Component {
+class Combo extends Component {
 
   constructor(props) {
     super(props)
@@ -15,7 +15,7 @@ class Dashboard extends Component {
   }
 
  fetchProducts(){
-     fetch(`http://127.0.0.1:8000/products/view`, {
+     fetch(`http://127.0.0.1:8000/products/combo/view`, {
          method: "GET",
           }).then(res=> res.json())
             .then(res=> {
@@ -52,7 +52,7 @@ render() {
 
   return (
     <div className="dashboard">
-    <h1>Available Products</h1>
+    <h1>Available Combos</h1>
     <ul>
       {list}
     </ul>
@@ -62,4 +62,4 @@ render() {
 }
 }
 
-export default Dashboard
+export default Combo

@@ -1,0 +1,23 @@
+.addProduct {
+	padding: 10vh 0;
+	width: 40%;
+	background-color: #FAFAFA;
+	margin: auto;
+	-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+	-moz-box-shadow:    3px 3px 5px 6px #ccc;
+	box-shadow:         3px 3px 5px 6px #ccc; 
+}
+
+.addProduct h2{
+	padding-bottom: 5vh;
+}
+
+.addProduct form{
+	width: 90%;
+	margin: auto;
+	text-align: left;
+}
+
+.addProduct .btn {
+	width: 100%;
+}

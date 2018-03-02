@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import {
-  BrowserRouter as Router,
+import {  BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 import './App.css'
+
+import AddProduct from '../components/AddProduct'
 import Dashboard from '../components/Dashboard'
 import Navbar from '../components/Navbar'
 import Login from './Login'
 import Signup from './Signup'
+import Combo from '../components/Combo'
 
 class App extends Component {
 
@@ -41,6 +43,8 @@ class App extends Component {
             <Route path="/" exact render={() => <Dashboard baseState={this.state}/>}/>
             <Route path="/login" exact render={() => <Login baseState={this.state} handleLogin={this.handleLogin}/>}/>
             <Route path="/signup" exact render={() => <Signup baseState={this.state}/>}/>
+             <Route path="/combo/view" exact render={() => <Combo baseState={this.state}/>}/>
+             <Route path="/add" exact render={() => <AddProduct baseState={this.state}/>}/>
           </div>  
         </div>
       </Router>
